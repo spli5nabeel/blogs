@@ -2,7 +2,7 @@ FROM adoptopenjdk/openjdk11
 
 EXPOSE 8080
 
-ARG JAR_FILE=target/blog-apis-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/blogs-0.0.1-SNAPSHOT.jar
 
 ADD ${JAR_FILE} app.jar
 
