@@ -1,0 +1,18 @@
+docker container run -d -p 8080:8080 --name blogs-api blogs-api:1.0
+docker tag <image id> leeban99/blogs-api
+docker push leeban99/blogs-api:1.0
+
+
+git clone https://gitlab.com/practical-openshift/labs.git
+
+oc whoami
+oc project
+
+oc new-app quay.io/practicalopenshift/hello-world --as-deployment-config
+
+oc new-app docker.io/leeban99/blogs-api --as-deployment-config
+oc new-app quay.io/practicalopenshift/hello-world --as-deployment-config
+oc import-image --confirm quay.io/practicalopenshift/hello-world
+oc import-image --confirm hub.docker.com/repository/docker/leeban99/blogs-api
+oc import-image docker.io/kubernetes/guestbook:latest --confirm
+oc import-image docker.io/leeban99/blogs-api:1.0 --confirm
